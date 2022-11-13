@@ -59,7 +59,7 @@ const signin = async (req, res) => {
     } catch (error) {
         console.log(error);
 
-        res.status(500).json({message: "Login Failed"});
+        res.status(500).json({message: "Login Failed", "error": error});
     }
 }
 
