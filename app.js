@@ -42,7 +42,7 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-mongoose.connect("mongodb://vault-db:MTTgPghUDwcVYAIXieonN36aYAYcCDkfz1pBrIod3WsHGiGbHec466PiMrxjTOh4zIefyUVWRBULACDbWg1Thg%3D%3D@vault-db.mongo.cosmos.azure.com:10255/?ssl=true&replicaSet=globaldb&retrywrites=false&maxIdleTimeMS=120000&appName=@vault-db@")
+mongoose.connect(process.env.MONGO_URL)
 // .then(() => {
 //   app.listen(port, () => {
 //     console.log(`Server running at port ${port}/`);
