@@ -4,10 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const mongoose = require("mongoose");
-const { format } = require("date-fns");
 require("dotenv").config();
-
-var configData = require("./config/connection");
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -45,8 +42,14 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-var connectionInfo = await configData.getConnectionInfo();
-
-mongoose.connect(connectionInfo.DATABASE_URL);
+mongoose.connect(process.env.MONGO_URL)
+// .then(() => {
+//   app.listen(port, () => {
+//     console.log(`Server running at port ${port}/`);
+//   });
+// })
+.catch((error) => {
+  console.log(error);
+});
 
 module.exports = app;
