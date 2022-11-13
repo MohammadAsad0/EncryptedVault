@@ -8,7 +8,7 @@ fileRouter.get("/", auth, getFiles);
 
 fileRouter.post("/", auth, createFiles);
 
-fileRouter.delete("/:id", auth, deleteFiles);
+fileRouter.delete('/:id', auth, deleteFiles);
 
 fileRouter.put("/:id", auth, updateFiles);
 

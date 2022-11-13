@@ -39,7 +39,6 @@ const createFiles = async (req, res) => {
 
 const updateFiles = async (req, res) => {
 
-    console.log("abc");
     const id = req.params.id;
     const {title, text} = req.body;
 
@@ -62,7 +61,7 @@ const updateFiles = async (req, res) => {
 const deleteFiles = async (req, res) => {
     
     const id = req.params.id;
-    
+
     try {
         const file = await fileModel.findByIdAndRemove(id);
         res.status(201).json(file);
