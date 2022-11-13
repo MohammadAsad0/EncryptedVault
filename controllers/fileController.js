@@ -39,6 +39,7 @@ const createFiles = async (req, res) => {
 
 const updateFiles = async (req, res) => {
 
+    console.log("abc");
     const id = req.params.id;
     const {title, text} = req.body;
 
